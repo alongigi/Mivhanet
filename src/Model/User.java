@@ -8,6 +8,7 @@ public class User {
     String email;
     String userName;
     String password;
+    CourseStaff courseStaff;
 
     public void sendMail(){
         //sendMail

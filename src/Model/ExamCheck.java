@@ -1,6 +1,8 @@
 package Model;
 
+import java.util.List;
+
 public class ExamCheck {
-    int grade;
-    int studentId;
+    List<StudentGrade> grades;
+    int factor;
 }

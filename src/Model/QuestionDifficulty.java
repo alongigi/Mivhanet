@@ -1,5 +1,5 @@
 package Model;
 
-public enum QuesteinDiffuclty {
+public enum QuestionDifficulty {
     level0, level1, level2, level3, level4, level5;
 }
