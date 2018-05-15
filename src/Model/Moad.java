@@ -6,5 +6,4 @@ public class Moad {
     MoadType moadType;
     Date date;
     Course course;
-    Exam exam;
 }

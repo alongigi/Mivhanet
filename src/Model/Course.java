@@ -7,6 +7,6 @@ public class Course {
     int id;
     String syllabus;
     CourseStaff courseStaff;
-    QuestionBank questionBank;
-    List<Moad> moads;
+//    QuestionBank questionBank;
+//    List<Moad> moads;
 }

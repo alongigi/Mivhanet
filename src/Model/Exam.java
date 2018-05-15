@@ -3,9 +3,11 @@ package Model;
 import java.util.List;
 
 public class Exam {
-    int time;
+    int duration;
     Course course;
+    Moad moad;
     List<ExamQuestion> questions;
+    ExamCheck examCheck;
 
 
     public void printToFile(String filePath){
