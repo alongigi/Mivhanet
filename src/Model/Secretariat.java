@@ -4,7 +4,7 @@ public class Secretariat {
     public void initSystem(){
         //initSystem
     }
-    public void watch(ExamCheck e){
+    public void watch(Exam e){
         //watch
     }
 
@@ -17,7 +17,7 @@ public class Secretariat {
         //insertToSystem
     }
 
-    public Moad createMoad(){
+    public Moed createMoad(){
         //createMoad
         return null;
     }

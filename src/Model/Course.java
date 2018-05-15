@@ -7,6 +7,7 @@ public class Course {
     private int id;
     private String syllabus;
     private CourseStaff courseStaff;
+    private List<Question> questions;
 
     public Course(String name, int id, String syllabus) {
 

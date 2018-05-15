@@ -5,9 +5,10 @@ import java.util.List;
 public class Exam {
     int duration;
     Course course;
-    Moad moad;
+    Moed moed;
+    int factor;
     List<ExamQuestion> questions;
-    ExamCheck examCheck;
+    List<StudentGrade> grades;
 
 
     public void printToFile(String filePath){

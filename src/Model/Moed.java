@@ -2,7 +2,7 @@ package Model;
 
 import java.util.Date;
 
-public class Moad {
+public class Moed {
     MoadType moadType;
     Date date;
     Course course;
