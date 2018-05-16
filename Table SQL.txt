@@ -1,0 +1,153 @@
+INSERT INTO Comment
+values(1, 1, 'good Question', 1); 
+INSERT INTO Comment
+values(2, 1, 'fair Question', 1); 
+INSERT INTO Comment
+values(3, 2, 'bad Question', 4); 
+INSERT INTO Comment
+values(4, 2, 'good Question', 2); 
+INSERT INTO Comment
+values(5, 3, 'good Question', 1); 
+
+INSERT INTO ExamQuestion
+values (1, 1, 10);
+INSERT INTO ExamQuestion
+values (1, 2, 15);
+INSERT INTO ExamQuestion
+values (1, 3, 20);
+INSERT INTO ExamQuestion
+values (2, 1, 30);
+INSERT INTO ExamQuestion
+values (2, 5, 10);
+
+
+
+
+alter table Course rename to Course_temp;
+
+CREATE TABLE "Course" ( `course_id` INTEGER, `name` TEXT, `syllabus` TEXT, PRIMARY KEY(`course_id`)  
+ );
+ 
+INSERT INTO Course 
+SELECT course_id, name, syllabus FROM Course_temp;
+
+alter table CourseStaff rename to CourseStaff_temp;
+
+CREATE TABLE "CourseStaff" ( `staff_id` INTEGER, `course_id` INTEGER, `manager_id` INTEGER, 
+PRIMARY KEY(`staff_id`),
+ FOREIGN KEY (course_id) REFERENCES Course(course_id),
+ FOREIGN KEY (manager_id) REFERENCES User(user_id));
+ 
+ INSERT INTO CourseStaff 
+SELECT * FROM CourseStaff_temp;
+
+alter table Assistant rename to Assistant_temp;
+
+CREATE TABLE "Assistant" ( `user_id` INTEGER, `staff_id` INTEGER,
+ PRIMARY KEY(`user_id`,`staff_id`) FOREIGN KEY (user_id) REFERENCES User(user_id)
+FOREIGN KEY (staff_id) REFERENCES CourseStaff(staff_id) );
+ 
+ INSERT INTO Assistant 
+SELECT * FROM Assistant_temp;
+
+alter table Lecturer rename to Lecturer_temp;
+
+CREATE TABLE `Lecturer` ( `user_id` INTEGER, `staff_id` INTEGER, 
+PRIMARY KEY(`user_id`,`staff_id`) 
+FOREIGN KEY (user_id) REFERENCES User(user_id) 
+FOREIGN KEY (staff_id) REFERENCES CourseStaff(staff_id));
+
+ INSERT INTO Lecturer 
+SELECT * FROM Lecturer_temp;
+
+
+alter table Question rename to Question_temp;
+
+CREATE TABLE "Question" ( `question_id` INTEGER, `creator_id` INTEGER NOT NULL, `course_id` INTEGER, `duration` INTEGER, `difficulty` INTEGER, `content` TEXT,
+ PRIMARY KEY(`question_id`)
+ FOREIGN KEY (creator_id) REFERENCES User(user_id)
+ FOREIGN KEY (course_id) REFERENCES Course(course_id));
+ 
+   INSERT INTO Question 
+SELECT * FROM Question_temp;
+
+
+alter table Answer rename to Answer_temp;
+
+CREATE TABLE "Answer" ( `answer_id` INTEGER, `question_id` INTEGER, `creator_id` INTEGER NOT NULL, `content` TEXT NOT NULL, `is_correct` TEXT NOT NULL,
+ PRIMARY KEY(`answer_id`,`question_id`)
+ FOREIGN KEY (`question_id`) REFERENCES Question(question_id)
+ FOREIGN KEY (`creator_id`) REFERENCES User(user_id) );
+ 
+   INSERT INTO Answer 
+SELECT * FROM Answer_temp;
+
+alter table Comment rename to Comment_temp;
+
+CREATE TABLE `Comment` ( `comment_id` INTEGER, `question_id` INTEGER, `content` TEXT, `creator_id` INTEGER NOT NULL,
+ PRIMARY KEY(`comment_id`,`question_id`)
+ FOREIGN KEY (question_id) REFERENCES Question(question_id) 
+ FOREIGN KEY (`creator_id`) REFERENCES User(user_id));
+
+
+alter table Moed rename to Moed_temp;
+
+CREATE TABLE `Moed` ( `moed_id` INTEGER, `course_id` INTEGER, `type` TEXT, `date` TEXT,
+ PRIMARY KEY(`moed_id`)
+ FOREIGN KEY (course_id) REFERENCES Course(course_id));
+ 
+  INSERT INTO Moed 
+SELECT * FROM Moed_temp;
+
+
+
+alter table Exam rename to Exam_temp;
+
+CREATE TABLE "Exam" ( `exam_id` INTEGER, `course_id` INTEGER, `duration` INTEGER, `moed_id` INTEGER, `factor` INTEGER, 
+PRIMARY KEY(`exam_id`) 
+FOREIGN KEY (course_id) REFERENCES Course(course_id) 
+FOREIGN KEY (moed_id) REFERENCES Moed(moed_id));
+
+ INSERT INTO Exam 
+SELECT * FROM Exam_temp;
+
+
+alter table ExamQuestion rename to ExamQuestion_temp;
+
+CREATE TABLE `ExamQuestion` ( exam_id INTEGER, `question_id` INTEGER, `score` INTEGER,
+ PRIMARY KEY(`question_id`,exam_id) 
+ FOREIGN KEY (question_id) REFERENCES Question(question_id) 
+ FOREIGN KEY (exam_id) REFERENCES Exam(exam_id) );
+ 
+  INSERT INTO ExamQuestion 
+SELECT * FROM ExamQuestion_temp;
+
+
+alter table StudentGrade rename to StudentGrade_temp;
+
+CREATE TABLE `StudentGrade` ( `exam_id` INTEGER, `student_id` INTEGER, `grade` INTEGER,
+ PRIMARY KEY(`exam_id`,`student_id`)
+ FOREIGN KEY (student_id) REFERENCES Student(student_id)
+  FOREIGN KEY (exam_id) REFERENCES Exam(exam_id));
+  
+ INSERT INTO StudentGrade 
+SELECT * FROM StudentGrade_temp;
+
+
+
+CREATE TABLE "CourseInSemester" ( `semester_id` INTEGER, `course_id` INTEGER, 
+PRIMARY KEY(`semester_id`, course_id),
+ FOREIGN KEY (course_id) REFERENCES Course(course_id),
+ FOREIGN KEY (semester_id) REFERENCES Semester(semester_id));
+ 
+INSERT INTO CourseInSemester 
+values(1, 1);
+INSERT INTO CourseInSemester 
+values(1, 2);
+INSERT INTO CourseInSemester 
+values(1, 3);
+INSERT INTO CourseInSemester 
+values(2, 1);
+INSERT INTO CourseInSemester 
+values(2, 4);
+
