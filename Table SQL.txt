@@ -1,13 +1,13 @@
 INSERT INTO Comment
-values(1, 1, 'good Question', 1); 
+values(1, 1, 'good Question'); 
 INSERT INTO Comment
-values(2, 1, 'fair Question', 1); 
+values(2, 1, 'fair Question'); 
 INSERT INTO Comment
-values(3, 2, 'bad Question', 4); 
+values(3, 2, 'bad Question'); 
 INSERT INTO Comment
-values(4, 2, 'good Question', 2); 
+values(4, 2, 'good Question'); 
 INSERT INTO Comment
-values(5, 3, 'good Question', 1); 
+values(5, 3, 'good Question'); 
 
 INSERT INTO ExamQuestion
 values (1, 1, 10);
@@ -84,10 +84,10 @@ SELECT * FROM Answer_temp;
 
 alter table Comment rename to Comment_temp;
 
-CREATE TABLE `Comment` ( `comment_id` INTEGER, `question_id` INTEGER, `content` TEXT, `creator_id` INTEGER NOT NULL,
+CREATE TABLE `Comment` ( `comment_id` INTEGER, `question_id` INTEGER, `content` TEXT, 
  PRIMARY KEY(`comment_id`,`question_id`)
  FOREIGN KEY (question_id) REFERENCES Question(question_id) 
- FOREIGN KEY (`creator_id`) REFERENCES User(user_id));
+ );
 
 
 alter table Moed rename to Moed_temp;

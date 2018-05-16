@@ -62,7 +62,7 @@ public class DB {
         return Collections.emptyList();
     }
 
-    public List<Comment> getQuestionComments(int question_id){
+    public List<String> getQuestionComments(int question_id){
         return Collections.emptyList();
     }
 
@@ -92,7 +92,7 @@ public class DB {
 
     }
 
-    public void addComment(Comment comment){
+    public void addComment(Question question, String comment){
 
     }
 
@@ -112,4 +112,28 @@ public class DB {
 
     }
 
+//    DELETE data
+
+    public void deleteQuestion(Question question){
+
+    }
+
+    public void deleteCourse(Course course){
+
+    }
+    public void deleteAnswer(Answer answer){
+
+    }
+
+    public void deleteComment(Question question, String comment){
+
+    }
+
+    public void deleteExam(Exam exam){
+
+    }
+
+    public void deleteUser(User user){
+
+    }
 }

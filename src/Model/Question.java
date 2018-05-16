@@ -8,6 +8,6 @@ public class Question {
     int duration;
     QuestionDifficulty questionDifficulty;
     List<Answer> answers;
-    List<Comment> comments;
+    List<String> comments;
 
 }
