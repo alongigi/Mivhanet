@@ -1,15 +1,16 @@
 package Model;
 
+import java.util.Collections;
 import java.util.List;
 
 public class CourseStaff {
     List<Assistant> assistants;
     List<Lecturer> lecturers;
     Manager manager;
-    List<Question> questions;
+    QuestionHandler questionHandler;
     Course course;
 
-    public void writeComment(Question q, String comment){
+    public void addCommentToQuestion(Question q, String comment){
 
     }
 
@@ -26,10 +27,10 @@ public class CourseStaff {
     }
 
     public List<Question> getAllQuestions(){
-        return questions;
+        return questionHandler.getQuestionByCourse(course);
     }
 
     public Question searchQuestion(String content){
-        return null;
+        return questionHandler.searchQuestionByContent(course, "content");
     }
 }

@@ -10,4 +10,15 @@ public class Question {
     List<Answer> answers;
     List<String> comments;
 
+    public int getCommentsSize()
+    {
+        return 0;
+    }
+
+    public void addComment(String comment){
+
+    }
+
+
+
 }
