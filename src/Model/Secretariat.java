@@ -1,6 +1,10 @@
 package Model;
 
+import java.util.List;
+
 public class Secretariat {
+    List<User> userList;
+
     public void initSystem(){
         //initSystem
     }
@@ -20,5 +24,24 @@ public class Secretariat {
     public Moed createMoad(){
         //createMoad
         return null;
+    }
+
+    public void creatNewUser(){
+    }
+
+    public boolean logIn(String user_name, String password){
+        return false;
+    }
+
+    public User getUser(String user_name, String password){
+        return null;
+    }
+
+    public void connectUser(User u){
+
+    }
+
+    public void alertUserNotExsits(){
+
     }
 }
