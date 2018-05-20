@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 public class CourseStaff {
@@ -65,6 +66,10 @@ public class CourseStaff {
     }
 
     public Exam createExam(Moed moed){
+        return null;
+    }
+
+    public Moed getMoed(Date date){
         return null;
     }
 
