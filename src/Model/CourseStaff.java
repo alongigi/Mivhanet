@@ -10,6 +10,7 @@ public class CourseStaff {
     Course course;
     List<Question> questions;
     List<Exam> exams;
+    List<Moed> moeds;
 
     public void addCommentToQuestion(Question q, String comment){
 
@@ -23,7 +24,7 @@ public class CourseStaff {
 
     }
 
-    public void deleteQuestionById(int question_id){
+    public void deleteQuestion(int question_id){
 
     }
 
@@ -34,4 +35,37 @@ public class CourseStaff {
     public Question searchQuestion(String content){
         return null;
     }
+
+    public Question getQuestion(int questionId){
+        return null;
+    }
+
+    public Exam getExam(int examId) {
+        return null;
+    }
+
+    public void addQuestionToExam(Question question, Exam exam, int score){
+
+    }
+
+    public int searchQuestionIdByContent(String content){
+        return 0;
+    }
+
+    public void alertError(String msg){
+
+    }
+
+    public void updateQuestionRank(int questionId, int rank){
+
+    }
+
+    public void addComment(int questionId, String comment){
+
+    }
+
+    public Exam createExam(Moed moed){
+        return null;
+    }
+
 }

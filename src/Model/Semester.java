@@ -8,4 +8,8 @@ public class Semester {
     Date startDate;
     Date endDate;
     List<Course> courses;
+
+    public void addCourse(Course course){
+
+    }
 }

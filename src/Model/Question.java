@@ -19,6 +19,10 @@ public class Question {
 
     }
 
+    public int getCommentSize(){
+        return 0;
+    }
+
 
 
 }

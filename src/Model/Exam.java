@@ -4,7 +4,6 @@ import java.util.List;
 
 public class Exam {
     int duration;
-    Course course;
     Moed moed;
     int factor;
     List<ExamQuestion> questions;

@@ -1,48 +1,63 @@
 package Model;
 
+import java.util.Date;
 import java.util.List;
 
 public class Secretariat {
     List<Semester> semesters;
     List<User> userList;
 
-    public void initSystem(){
+    public void initSystem() {
         //initSystem
     }
-    public void watch(Exam e){
+
+    public void watch(Exam e) {
         //watch
     }
 
-    public Course createCourse(){
+    public Course createCourse(String courseName, int courseId, String syllabus) {
         //createCourse
         return null;
     }
 
-    public void insertToSystem(User u){
+    public Semester getSemesterByDate(Date startDate) {
+        return null;
+    }
+
+    public void addCourseToSemester(Course course, Semester semester){
+
+    }
+
+    public void insertToSystem(User u) {
         //insertToSystem
     }
 
-    public Moed createMoad(){
+    public Moed createMoad() {
         //createMoad
         return null;
     }
 
-    public void creatNewUser(){
+    public void creatNewUser(String firstName, String lastName, int id, String phone, String email) {
+
     }
 
-    public boolean logIn(String user_name, String password){
+    public void sendUsernameAndPassword(User u){
+
+    }
+
+    public boolean logIn(String user_name, String password) {
         return false;
     }
 
-    public User getUser(String user_name, String password){
+    public User getUser(String user_name, String password) {
         return null;
     }
 
-    public void connectUser(User u){
+    public void connectUser(User u) {
 
     }
 
-    public void alertUserNotExsits(){
+    public void alertUserNotExsits() {
 
     }
 }
