@@ -1,18 +1,16 @@
 package Model;
 
-import java.util.List;
-
 public class Course {
     private String name;
-    private int id;
+    private int course_id;
     private String syllabus;
 
 
 
-    public Course(String name, int id, String syllabus) {
+    public Course(String name, int course_id, String syllabus) {
 
         this.name = name;
-        this.id = id;
+        this.course_id = course_id;
         this.syllabus = syllabus;
     }
 
@@ -21,8 +19,8 @@ public class Course {
         return name;
     }
 
-    public int getId() {
-        return id;
+    public int getCourse_id() {
+        return course_id;
     }
 
     public String getSyllabus() {

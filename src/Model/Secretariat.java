@@ -3,6 +3,7 @@ package Model;
 import java.util.List;
 
 public class Secretariat {
+    List<Semester> semesters;
     List<User> userList;
 
     public void initSystem(){

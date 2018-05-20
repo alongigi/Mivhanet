@@ -3,7 +3,7 @@ package Model;
 import java.util.List;
 
 public class Question {
-    User creator;
+    int creator_id;
     String Body;
     int duration;
     QuestionDifficulty questionDifficulty;

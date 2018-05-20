@@ -7,9 +7,8 @@ public class Exam {
     Course course;
     Moed moed;
     int factor;
-//    List<ExamQuestion> questions;
+    List<ExamQuestion> questions;
     List<StudentGrade> grades;
-    QuestionHandler questionHandler;
 
 
     public void printToFile(String filePath){

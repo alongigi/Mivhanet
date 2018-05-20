@@ -7,8 +7,9 @@ public class CourseStaff {
     List<Assistant> assistants;
     List<Lecturer> lecturers;
     Manager manager;
-    QuestionHandler questionHandler;
     Course course;
+    List<Question> questions;
+    List<Exam> exams;
 
     public void addCommentToQuestion(Question q, String comment){
 
@@ -27,10 +28,10 @@ public class CourseStaff {
     }
 
     public List<Question> getAllQuestions(){
-        return questionHandler.getQuestionByCourse(course);
+        return Collections.emptyList();
     }
 
     public Question searchQuestion(String content){
-        return questionHandler.searchQuestionByContent(course, "content");
+        return null;
     }
 }
