@@ -1,7 +1,11 @@
 package Model;
 
 public class Lecturer extends User {
-    public void editAnswer(Question question,Answer answer){
+    public Lecturer(String firstMame, String lastName, int ID, int phoneNumber, String email) {
+        super(firstMame, lastName, ID, phoneNumber, email);
+    }
+
+    public void editAnswer(Question question, Answer answer){
 
     }
 

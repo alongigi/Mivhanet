@@ -11,10 +11,21 @@ public class DB {
     public DB(String path) {
         try {
             dbConnection = DriverManager.getConnection("jdbc:sqlite:" + path);
+            createCoursesTable();
             System.out.println("db init");
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
+    }
+
+    private void createCoursesTable() throws SQLException {
+        execute("CREATE TABLE IF NOT EXISTS Courses (\n" +
+                "name_course varchar(255) ,\n" +
+                "number_course int ,\n" +
+                "syllabus varchar(255),\n" +
+                "semester varchar(255),\n" +
+                "CONSTRAINT Courses PRIMARY KEY (name_course,number_course,semester), \n" +
+                ";");
     }
 //  GET data
 
@@ -135,5 +146,10 @@ public class DB {
 
     public void deleteUser(User user){
 
+    }
+
+    private void execute(String sql) throws SQLException {
+        Statement st = dbConnection.createStatement();
+        st.execute(sql);
     }
 }
