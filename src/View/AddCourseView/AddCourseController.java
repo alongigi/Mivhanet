@@ -43,7 +43,8 @@ public class AddCourseController implements Initializable {
         semester_date.setValue(null);
     }
 
-    public void quitOption(ActionEvent actionEvent) {
+    @FXML
+    private void exitApp(MouseEvent event) {
         System.exit(0);
     }
 }

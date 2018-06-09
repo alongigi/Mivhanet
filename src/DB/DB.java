@@ -12,10 +12,22 @@ public class DB {
         try {
             dbConnection = DriverManager.getConnection("jdbc:sqlite:" + path);
             createCoursesTable();
+            createUsersTable();
             System.out.println("db init");
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
+    }
+
+    private void createUsersTable() throws SQLException {
+        execute("CREATE TABLE IF NOT EXISTS Users (\n" +
+                "first_name varchar(255) ,\n" +
+                "last_name varchar(255) ,\n" +
+                "id int ,\n" +
+                "phone int ,\n" +
+                "email varchar(255) ,\n" +
+                "CONSTRAINT Users PRIMARY KEY (id), \n" +
+                ";");
     }
 
     private void createCoursesTable() throws SQLException {
