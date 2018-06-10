@@ -1,6 +1,5 @@
 package View.AddCourseView;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -26,7 +25,6 @@ public class AddCourseController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        categories.set
     }
 
     public void setViewModel(ViewModel viewModel) {this.viewModel = viewModel;}

@@ -7,7 +7,8 @@ package Main;
 
 import Model.Model;
 import View.AddCourseView.AddCourseController;
-import View.AddUserView.AddUserController;
+//import View.AddUserView.AddUserController;
+import View.LoginView.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,30 +26,38 @@ public class ViewModel extends Application {
     private AddCourseController addUserController;
     private Scene addCourseScene;
     private Scene addUserScene;
+    private Scene loginScene;
 
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader addCourseLoader = new FXMLLoader(getClass().getResource("../View/AddCourseView/AddCourse.fxml"));
         Parent addCourseRoot = addCourseLoader.load();
         FXMLLoader addUserLoader = new FXMLLoader(getClass().getResource("../View/AddUserView/AddUser.fxml"));
-        Parent addUserRoot = addUserLoader.load();
+//        Parent addUserRoot = addUserLoader.load();
+        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("../View/LoginView/Login.fxml"));
+        Parent loginRoot = loginLoader.load();
 
         this.stage = stage;
         this.stage.initStyle(StageStyle.UNDECORATED);
 
         addCourseScene = new Scene(addCourseRoot);
-        addUserScene = new Scene(addUserRoot);
+//        addUserScene = new Scene(addUserRoot);
+        loginScene = new Scene(loginRoot);
 
         Model model = new Model();
         setModel(model);
         AddCourseController addCourseController = addCourseLoader.getController();
-        AddUserController addUserController = addUserLoader.getController();
+        //AddUserController addUserController = addUserLoader.getController();
+        LoginController loginController = loginLoader.getController();
+
 
         addCourseController.setViewModel(this);
         //addUserController.setViewModel(this);
+        loginController.setViewModel(this);
 
-        stage.setScene(addCourseScene);
+        //stage.setScene(addCourseScene);
         //stage.setScene(addUserScene);
+        stage.setScene(loginScene);
         stage.show();
     }
 
