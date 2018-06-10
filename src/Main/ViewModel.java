@@ -7,7 +7,7 @@ package Main;
 
 import Model.Model;
 import View.AddCourseView.AddCourseController;
-//import View.AddUserView.AddUserController;
+import View.AddUserView.AddUserController;
 import View.LoginView.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -33,7 +33,7 @@ public class ViewModel extends Application {
         FXMLLoader addCourseLoader = new FXMLLoader(getClass().getResource("../View/AddCourseView/AddCourse.fxml"));
         Parent addCourseRoot = addCourseLoader.load();
         FXMLLoader addUserLoader = new FXMLLoader(getClass().getResource("../View/AddUserView/AddUser.fxml"));
-//        Parent addUserRoot = addUserLoader.load();
+        Parent addUserRoot = addUserLoader.load();
         FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("../View/LoginView/Login.fxml"));
         Parent loginRoot = loginLoader.load();
 
@@ -41,18 +41,18 @@ public class ViewModel extends Application {
         this.stage.initStyle(StageStyle.UNDECORATED);
 
         addCourseScene = new Scene(addCourseRoot);
-//        addUserScene = new Scene(addUserRoot);
+        addUserScene = new Scene(addUserRoot);
         loginScene = new Scene(loginRoot);
 
         Model model = new Model();
         setModel(model);
         AddCourseController addCourseController = addCourseLoader.getController();
-        //AddUserController addUserController = addUserLoader.getController();
+        AddUserController addUserController = addUserLoader.getController();
         LoginController loginController = loginLoader.getController();
 
 
         addCourseController.setViewModel(this);
-        //addUserController.setViewModel(this);
+        addUserController.setViewModel(this);
         loginController.setViewModel(this);
 
         //stage.setScene(addCourseScene);
