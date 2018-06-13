@@ -5,8 +5,6 @@ public class Course {
     private int course_id;
     private String syllabus;
 
-
-
     public Course(String name, int course_id, String syllabus) {
 
         this.name = name;
@@ -15,7 +13,6 @@ public class Course {
     }
 
     public String getName() {
-
         return name;
     }
 

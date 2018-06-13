@@ -40,7 +40,7 @@ public class AddUserController implements Initializable {
     }
 
     public void handleAddUser(MouseEvent mouseEvent) {
-        User u = new User(first_name.getText(),last_name.getText(), Integer.parseInt(id.getText()) ,Integer.parseInt(phone.getText()), email.getText());
+//        User u = new User(first_name.getText(),last_name.getText(), Integer.parseInt(id.getText()) ,Integer.parseInt(phone.getText()), email.getText());
 
 //        if(!viewModel.isUserExists(u)) {
 //            try {
