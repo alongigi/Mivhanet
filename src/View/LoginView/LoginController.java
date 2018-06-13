@@ -39,4 +39,5 @@ public class LoginController implements Initializable {
     private void exitApp(MouseEvent event) {
         System.exit(0);
     }
+
 }
