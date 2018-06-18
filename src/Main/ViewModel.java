@@ -106,5 +106,4 @@ public class ViewModel extends Application {
     public void createUser(User user) {
         model.createUser(user);
     }
-
 }
