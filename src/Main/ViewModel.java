@@ -69,9 +69,9 @@ public class ViewModel extends Application {
         loginController.setViewModel(this);
         signUpController.setViewModel(this);
 
-//        stage.setScene(addCourseScene);
+        stage.setScene(addCourseScene);
         //stage.setScene(addUserScene);
-        stage.setScene(loginScene);
+//        stage.setScene(loginScene);
 //        stage.setScene(signUpScene);
         stage.show();
     }
@@ -116,4 +116,6 @@ public class ViewModel extends Application {
     public void createUser(User user) {
         model.createUser(user);
     }
+
+
 }

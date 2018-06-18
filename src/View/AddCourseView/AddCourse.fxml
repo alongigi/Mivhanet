@@ -10,6 +10,7 @@
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ComboBox?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AddCourseView.AddCourseController">
         <Button layoutX="93.0" layoutY="627.0" mnemonicParsing="false" onMousePressed="#addCourse" prefHeight="35.0" prefWidth="91.0" style="-fx-background-color: #bf2e1b;" text="Add Course" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
             <effect>
@@ -57,11 +58,14 @@
                         <Font size="24.0" />
                     </font>
                 </Label>
-                <DatePicker fx:id="semester_date" prefHeight="31.0" prefWidth="197.0" style="-fx-background-color: #2D3447; -fx-text-inner-color: red;">
-                    <effect>
-                        <Glow />
-                    </effect>
-                </DatePicker>
+                <!--<DatePicker fx:id="semester_date" prefHeight="31.0" prefWidth="197.0" style="-fx-background-color: #2D3447; -fx-text-inner-color: red;">-->
+                    <!--<effect>-->
+                        <!--<Glow />-->
+                    <!--</effect>-->
+                <!--</DatePicker>-->
+
+            <ComboBox fx:id="semesterCombo" layoutX="15.0" layoutY="33.0" prefWidth="90.0" promptText="choose"/>
+            <Label fx:id="selectedFruit" textAlignment="CENTER" />
 
         </VBox>
         <Button layoutX="945.0" layoutY="43.0" mnemonicParsing="false" onMousePressed="#exitApp" style="-fx-background-color: #2D3447;" text="Quit" textFill="#ff6600">
