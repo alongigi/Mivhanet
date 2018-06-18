@@ -29,8 +29,8 @@ public class AddCourseController implements Initializable {
 
     public void setViewModel(ViewModel viewModel) {this.viewModel = viewModel;}
 
-    public void addCurse(MouseEvent mouseEvent) {
-        viewModel.addCurse(courseName.getText(), courseNumber.getText(), syllabus.getText(), semester_date.getValue());
+    public void addCourse(MouseEvent mouseEvent) {
+        viewModel.addCourse(courseName.getText(), courseNumber.getText(), syllabus.getText(), semester_date.getValue());
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText("New course add");

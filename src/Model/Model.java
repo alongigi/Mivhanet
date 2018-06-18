@@ -4,14 +4,18 @@ import DB.DB;
 import java.util.Random;
 
 public class Model {
-    DB db;
+    Secretariat secretariat;
 
     public Model() {
-        this.db = SingletonDB.getInstance("myDB.db");
+
+//        this.db = SingletonDB.getInstance("myDB.db");
+        secretariat = new Secretariat();
     }
 
     public User loginUser(String emailInput, String userPasswordInput) {
-        return db.loginUser(emailInput, userPasswordInput);
+
+        return secretariat.loginUser(emailInput, userPasswordInput);
+//        return db.loginUser(emailInput, userPasswordInput);
     }
 
     public int getRandomNumber() {
@@ -21,6 +25,6 @@ public class Model {
     }
 
     public void createUser(User user) {
-        db.addUser(user);
+        secretariat.addUser(user);
     }
 }

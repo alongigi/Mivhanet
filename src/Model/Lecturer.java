@@ -1,7 +1,7 @@
 package Model;
 
 public class Lecturer extends User {
-    public Lecturer(String firstMame, String lastName, int ID, int phoneNumber, String email, String userName, String password) {
+    public Lecturer(String firstMame, String lastName, int ID, String phoneNumber, String email, String userName, String password) {
         super(firstMame, lastName, ID, phoneNumber, email, userName, password);
     }
 

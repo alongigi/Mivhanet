@@ -1,14 +1,25 @@
 package Model;
 
+import DB.DB;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Secretariat {
     List<Semester> semesters;
     List<User> userList;
+    DB db;
+
+    public Secretariat() {
+        this.db = SingletonDB.getInstance("myDB.db");
+        semesters = new ArrayList<Semester>();
+        userList = new ArrayList<User>();
+    }
 
     public void initSystem() {
         //initSystem
+
     }
 
     public void watch(Exam e) {
@@ -59,5 +70,13 @@ public class Secretariat {
 
     public void alertUserNotExsits() {
 
+    }
+
+    public User loginUser(String emailInput, String userPasswordInput) {
+        return db.loginUser(emailInput, userPasswordInput);
+    }
+
+    public void addUser(User user) {
+        db.addUser(user);
     }
 }

@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import Model.User;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class ViewModel extends Application {
@@ -68,7 +69,7 @@ public class ViewModel extends Application {
         loginController.setViewModel(this);
         signUpController.setViewModel(this);
 
-        //stage.setScene(addCourseScene);
+//        stage.setScene(addCourseScene);
         //stage.setScene(addUserScene);
         stage.setScene(loginScene);
 //        stage.setScene(signUpScene);
@@ -83,11 +84,17 @@ public class ViewModel extends Application {
         this.model = model;
     }
 
-    public void addCurse(String nameCourse, String numberCourse, String syllabus, LocalDate semester) {
+    public void addCourse(String nameCourse, String numberCourse, String syllabus, LocalDate semester) {
+
     }
 
-    public void loginUser(String emailInput, String userPasswordInput) {
+    public boolean loginUser(String emailInput, String userPasswordInput) {
         user = model.loginUser(emailInput, userPasswordInput);
+        if(user.userName.equals("NO USER")) {
+            System.out.println("Invalid username or password");
+            return false;
+        }
+        return true;
     }
 
     public void goToSignUp() {
@@ -97,6 +104,9 @@ public class ViewModel extends Application {
 
     public void goToLogin() {
         stage.setScene(loginScene);
+    }
+    public void goToAddCourse() {
+        stage.setScene(addCourseScene);
     }
 
     public int getRandomNumber() {
