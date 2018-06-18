@@ -1,5 +1,6 @@
 package View.AddCourseView;
 
+import Model.Semester;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -9,6 +10,8 @@ import javafx.scene.input.MouseEvent;
 import Main.ViewModel;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AddCourseController implements Initializable {
@@ -33,14 +36,23 @@ public class AddCourseController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 
-        semesterCombo.getItems().setAll("Apple", "Orange", "Pear");
+    }
+
+    public void setUp() {
+        List<Semester> semesterList = viewModel.getAllSemesters();
+        List<String> dates = new ArrayList<>();
+        for (Semester s : semesterList) {
+            dates.add(s.getStartDate());
+        }
+        semesterCombo.getItems().setAll(dates);
 
         // bind the selected fruit label to the selected fruit in the combo box.
         selectedFruit.textProperty().bind(semesterCombo.getSelectionModel().selectedItemProperty());
 
         // listen for changes to the fruit combo box selection and update the displayed fruit image accordingly.
         semesterCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override public void changed(ObservableValue<? extends String> selected, String oldElement, String newElement) {
+            @Override
+            public void changed(ObservableValue<? extends String> selected, String oldElement, String newElement) {
 
                 System.out.println(newElement);
 
@@ -60,10 +72,11 @@ public class AddCourseController implements Initializable {
 //                }
             }
         });
-
     }
 
-    public void setViewModel(ViewModel viewModel) {this.viewModel = viewModel;}
+    public void setViewModel(ViewModel viewModel) {
+        this.viewModel = viewModel;
+    }
 
     public void addCourse(MouseEvent mouseEvent) {
         viewModel.addCourse(courseName.getText(), courseNumber.getText(), syllabus.getText(), semester_date.getValue());

@@ -2,6 +2,7 @@ package Model;
 
 import DB.DB;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -81,4 +82,12 @@ public class Secretariat {
     }
 
 
+    public List<Semester> getAllSemesters(){
+        try {
+            return db.getAllSemesters();
+        } catch (SQLException e) {
+            System.out.println("error");
+            return new ArrayList<Semester>();
+        }
+    }
 }

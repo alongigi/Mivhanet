@@ -29,8 +29,8 @@ public class DB {
         while (resultSet.next()) {
             Semester s = new Semester(resultSet.getInt("semester_id"));
             s.setSemesterType(SemesterType.valueOf(resultSet.getString("type")));
-            s.setStartDate(resultSet.getDate("start_date"));
-            s.setEndDate(resultSet.getDate("end_date"));
+            s.setStartDate(resultSet.getString("start_date"));
+            s.setEndDate(resultSet.getString("end_date"));
             List<Course> semesterCourses = getSemesterCourses(s.getSemesterId());
             for (Course c : semesterCourses) {
                 s.addCourse(c);
@@ -44,7 +44,7 @@ public class DB {
         Statement st = dbConnection.createStatement();
         String query = "Select * From Course WHERE course_id = " + course_id + ";";
         ResultSet resultSet = st.executeQuery(query);
-        return new Course(resultSet.getString("name"),course_id ,resultSet.getString("syllabus"));
+        return new Course(resultSet.getString("name"), course_id, resultSet.getString("syllabus"));
     }
 
     public List<Exam> getCourseExams(int course_id) {

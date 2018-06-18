@@ -17,9 +17,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import Model.User;
+import Model.Semester;
 
-import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 
 public class ViewModel extends Application {
 
@@ -68,10 +69,10 @@ public class ViewModel extends Application {
         addUserController.setViewModel(this);
         loginController.setViewModel(this);
         signUpController.setViewModel(this);
-
-        stage.setScene(addCourseScene);
+        addCourseController.setUp();
+//        stage.setScene(addCourseScene);
         //stage.setScene(addUserScene);
-//        stage.setScene(loginScene);
+        stage.setScene(loginScene);
 //        stage.setScene(signUpScene);
         stage.show();
     }
@@ -118,4 +119,8 @@ public class ViewModel extends Application {
     }
 
 
+    public List<Semester> getAllSemesters() {
+
+        return  model.getAllSemesters();
+    }
 }

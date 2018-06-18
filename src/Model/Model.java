@@ -1,6 +1,8 @@
 package Model;
 
 import DB.DB;
+
+import java.util.List;
 import java.util.Random;
 
 public class Model {
@@ -29,4 +31,7 @@ public class Model {
     }
 
 
+    public List<Semester> getAllSemesters() {
+        return secretariat.getAllSemesters();
+    }
 }

@@ -6,8 +6,8 @@ import java.util.List;
 public class Semester {
     int semesterId;
     SemesterType semesterType;
-    Date startDate;
-    Date endDate;
+    String startDate;
+    String endDate;
     List<Course> courses;
 
     public Semester(int semesterId) {
@@ -30,19 +30,19 @@ public class Semester {
         this.semesterType = semesterType;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 
