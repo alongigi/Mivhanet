@@ -27,4 +27,6 @@ public class Model {
     public void createUser(User user) {
         secretariat.addUser(user);
     }
+
+
 }

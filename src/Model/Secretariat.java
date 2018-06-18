@@ -79,4 +79,6 @@ public class Secretariat {
     public void addUser(User user) {
         db.addUser(user);
     }
+
+
 }
