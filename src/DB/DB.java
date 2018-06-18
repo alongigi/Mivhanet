@@ -21,8 +21,30 @@ public class DB {
 
 //  GET data
 
-    public Course getCourse(int course_id) {
-        return null;
+    public List<Semester> getAllSemesters() throws SQLException {
+        Statement st = dbConnection.createStatement();
+        String query = "Select * From Semester ;";
+        List<Semester> semesters = new ArrayList<>();
+        ResultSet resultSet = st.executeQuery(query);
+        while (resultSet.next()) {
+            Semester s = new Semester(resultSet.getInt("semester_id"));
+            s.setSemesterType(SemesterType.valueOf(resultSet.getString("type")));
+            s.setStartDate(resultSet.getDate("start_date"));
+            s.setEndDate(resultSet.getDate("end_date"));
+            List<Course> semesterCourses = getSemesterCourses(s.getSemesterId());
+            for (Course c : semesterCourses) {
+                s.addCourse(c);
+            }
+            semesters.add(s);
+        }
+        return semesters;
+    }
+
+    public Course getCourse(int course_id) throws SQLException {
+        Statement st = dbConnection.createStatement();
+        String query = "Select * From Course WHERE course_id = " + course_id + ";";
+        ResultSet resultSet = st.executeQuery(query);
+        return new Course(resultSet.getString("name"),course_id ,resultSet.getString("syllabus"));
     }
 
     public List<Exam> getCourseExams(int course_id) {
@@ -33,8 +55,16 @@ public class DB {
         return Collections.emptyList();
     }
 
-    public List<Course> getSemesterCourses(int semester_id) {
-        return Collections.emptyList();
+    public List<Course> getSemesterCourses(int semester_id) throws SQLException {
+        Statement st = dbConnection.createStatement();
+        String query = "Select * From CourseInSemester WHERE semester_id = " + semester_id + ";";
+        List<Course> courses = new ArrayList<Course>();
+        ResultSet resultSet = st.executeQuery(query);
+        while (resultSet.next()) {
+            Course c = getCourse(resultSet.getInt("course_id"));
+            courses.add(c);
+        }
+        return courses;
     }
 
     public List<StudentGrade> getExamGrages(int exam_id) {
