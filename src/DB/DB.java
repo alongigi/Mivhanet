@@ -113,14 +113,10 @@ public class DB {
 
 //    ADD data
 
-    public void addCourse(Course course) {
-        try {
+    public void addCourse(Course course) throws SQLException {
             String query = "INSERT INTO Course \n" +
                     "VALUES (" + course.getCourse_id() + ", '" + course.getName() + "', '" + course.getSyllabus() + "');";
             execute(query);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     public void addQuestion(Question question) {
@@ -221,10 +217,10 @@ public class DB {
         st.execute(sql);
     }
 
-    public User loginUser(String emailInput, String userPasswordInput) {
+    public User loginUser(String userNameInput, String userPasswordInput) {
         try {
             Statement st = dbConnection.createStatement();
-            String query = "Select * From User WHERE User.email='" + emailInput + "'" + " AND User.password='" + userPasswordInput + "';";
+            String query = "Select * From User WHERE User.user_name='" + userNameInput + "'" + " AND User.password='" + userPasswordInput + "';";
             ResultSet resultSet = st.executeQuery(query);
             return getUserFromRow(resultSet);
 

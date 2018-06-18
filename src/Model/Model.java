@@ -13,9 +13,9 @@ public class Model {
         secretariat = new Secretariat();
     }
 
-    public User loginUser(String emailInput, String userPasswordInput) {
+    public User loginUser(String userNameInput, String userPasswordInput) {
 
-        return secretariat.loginUser(emailInput, userPasswordInput);
+        return secretariat.loginUser(userNameInput, userPasswordInput);
 //        return db.loginUser(emailInput, userPasswordInput);
     }
 
@@ -34,7 +34,7 @@ public class Model {
         return secretariat.getAllSemesters();
     }
 
-    public void addCourse(String nameCourse, String syllabus, Semester semester) throws SQLException {
-        secretariat.addCourse(nameCourse, syllabus, semester);
+    public void addCourse(String nameCourse, String syllabus, Semester semester, int courseId) throws SQLException {
+        secretariat.addCourse(nameCourse, syllabus, semester, courseId);
     }
 }

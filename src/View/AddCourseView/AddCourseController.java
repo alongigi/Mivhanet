@@ -57,21 +57,6 @@ public class AddCourseController implements Initializable {
             public void changed(ObservableValue<? extends String> selected, String oldElement, String newElement) {
                 pickedSemester = startDateToSemester.get(newElement);
                 System.out.println(newElement);
-
-//                if (oldFruit != null) {
-//                    switch(oldFruit) {
-//                        case "Apple": appleImage.setVisible(false); break;
-//                        case "Orange": orangeImage.setVisible(false); break;
-//                        case "Pear": pearImage.setVisible(false); break;
-//                    }
-//                }
-//                if (newFruit != null) {
-//                    switch(newFruit) {
-//                        case "Apple": appleImage.setVisible(true); break;
-//                        case "Orange": orangeImage.setVisible(true); break;
-//                        case "Pear": pearImage.setVisible(true); break;
-//                    }
-//                }
             }
         });
     }
@@ -81,22 +66,38 @@ public class AddCourseController implements Initializable {
     }
 
     public void addCourse(MouseEvent mouseEvent) {
-        try {
-            viewModel.addCourse(courseName.getText(), syllabus.getText(), pickedSemester);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText("New course add");
-            alert.showAndWait();
-            courseName.setText("");
-            courseNumber.setText("");
-            syllabus.setText("");
-        } catch (SQLException e) {
-            System.out.println("Bad course values");
+        if (!courseName.getText().equals("") && !syllabus.getText().equals("") && !pickedSemester.equals("")) {
+            try {
+                int courseId = Integer.parseInt(courseNumber.getText());
+                viewModel.addCourse(courseId, courseName.getText(), syllabus.getText(), pickedSemester);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText("New course add");
+                alert.showAndWait();
+                courseName.setText("");
+                courseNumber.setText("");
+                syllabus.setText("");
+            } catch (SQLException e) {
+                System.out.println("Bad course values");
+                popAlert("CourseId is taken");
+            } catch (Exception e) {
+                popAlert("CourseId must be Integer");
+            }
+        }
+        else {
+            popAlert("Some values are missing");
         }
     }
 
     @FXML
     private void exitApp(MouseEvent event) {
         System.exit(0);
+    }
+
+    private void popAlert(String text) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(text);
+        alert.showAndWait();
     }
 }

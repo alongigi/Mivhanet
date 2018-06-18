@@ -85,12 +85,12 @@ public class ViewModel extends Application {
         this.model = model;
     }
 
-    public void addCourse(String nameCourse, String syllabus, Semester semester) throws SQLException {
-        model.addCourse(nameCourse, syllabus, semester);
+    public void addCourse(int courseId, String nameCourse, String syllabus, Semester semester) throws SQLException {
+        model.addCourse(nameCourse, syllabus, semester, courseId);
     }
 
-    public boolean loginUser(String emailInput, String userPasswordInput) {
-        user = model.loginUser(emailInput, userPasswordInput);
+    public boolean loginUser(String userNameInput, String userPasswordInput) {
+        user = model.loginUser(userNameInput, userPasswordInput);
         if(user.userName.equals("NO USER")) {
             System.out.println("Invalid username or password");
             return false;

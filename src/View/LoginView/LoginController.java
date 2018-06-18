@@ -20,7 +20,7 @@ import javafx.scene.input.MouseEvent;
 public class LoginController implements Initializable {
 
     @FXML
-    public TextField email;
+    public TextField userName;
 
     @FXML
     public PasswordField password;
@@ -32,9 +32,9 @@ public class LoginController implements Initializable {
 
     @FXML
     protected void loginIn(ActionEvent event) {
-        String emailInput = email.getText();
+        String userNameInput = userName.getText();
         String userPasswordInput = password.getText();
-        if(viewModel.loginUser(emailInput, userPasswordInput)){
+        if(viewModel.loginUser(userNameInput, userPasswordInput)){
             System.out.println("Logged in");
             viewModel.goToAddCourse();
         }
@@ -44,7 +44,7 @@ public class LoginController implements Initializable {
     }
 
     private void clearInput() {
-        email.clear();
+        userName.clear();
         password.clear();
     }
 

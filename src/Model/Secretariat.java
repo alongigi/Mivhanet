@@ -73,8 +73,8 @@ public class Secretariat {
 
     }
 
-    public User loginUser(String emailInput, String userPasswordInput) {
-        return db.loginUser(emailInput, userPasswordInput);
+    public User loginUser(String userNameInput, String userPasswordInput) {
+        return db.loginUser(userNameInput, userPasswordInput);
     }
 
     public void addUser(User user) {
@@ -93,8 +93,7 @@ public class Secretariat {
         return semesters;
     }
 
-    public void addCourse(String nameCourse, String syllabus, Semester semester) throws SQLException {
-        int courseId = db.getNextCourseId();
+    public void addCourse(String nameCourse, String syllabus, Semester semester, int courseId) throws SQLException {
         Course c = new Course(nameCourse, courseId, syllabus);
         for (Semester s : semesters) {
             if (s.semesterId == semester.semesterId) {
