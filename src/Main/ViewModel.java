@@ -19,7 +19,7 @@ import javafx.stage.StageStyle;
 import Model.User;
 import Model.Semester;
 
-import java.time.LocalDate;
+import java.sql.SQLException;
 import java.util.List;
 
 public class ViewModel extends Application {
@@ -85,8 +85,8 @@ public class ViewModel extends Application {
         this.model = model;
     }
 
-    public void addCourse(String nameCourse, String numberCourse, String syllabus, LocalDate semester) {
-
+    public void addCourse(String nameCourse, String syllabus, Semester semester) throws SQLException {
+        model.addCourse(nameCourse, syllabus, semester);
     }
 
     public boolean loginUser(String emailInput, String userPasswordInput) {

@@ -114,7 +114,13 @@ public class DB {
 //    ADD data
 
     public void addCourse(Course course) {
-
+        try {
+            String query = "INSERT INTO Course \n" +
+                    "VALUES (" + course.getCourse_id() + ", '" + course.getName() + "', '" + course.getSyllabus() + "');";
+            execute(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void addQuestion(Question question) {
@@ -241,6 +247,23 @@ public class DB {
         int ID = rand.nextInt(50000) + 1;
 
         return new User(userFirstName, userLastName, ID, phoneNumber, email, userName, password);
+    }
+
+    public int getNextCourseId() throws SQLException {
+        Statement st = dbConnection.createStatement();
+        String query = "Select MAX(course_id) as maxId From Course ;";
+        ResultSet resultSet = st.executeQuery(query);
+        return resultSet.getInt("maxId") + 1;
+    }
+
+    public void addCourseInSemester(int course_id, int semesterId) {
+        try {
+            String query = "INSERT INTO CourseInSemester \n" +
+                    "VALUES (" + semesterId + ", " + course_id + ");";
+            execute(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 

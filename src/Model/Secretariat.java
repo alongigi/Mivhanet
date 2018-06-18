@@ -36,7 +36,7 @@ public class Secretariat {
         return null;
     }
 
-    public void addCourseToSemester(Course course, Semester semester){
+    public void addCourseToSemester(Course course, Semester semester) {
 
     }
 
@@ -53,7 +53,7 @@ public class Secretariat {
 
     }
 
-    public void sendUsernameAndPassword(User u){
+    public void sendUsernameAndPassword(User u) {
 
     }
 
@@ -82,12 +82,26 @@ public class Secretariat {
     }
 
 
-    public List<Semester> getAllSemesters(){
+    public List<Semester> getAllSemesters() {
         try {
-            return db.getAllSemesters();
+            semesters = db.getAllSemesters();
+
         } catch (SQLException e) {
             System.out.println("error");
-            return new ArrayList<Semester>();
+            semesters = new ArrayList<Semester>();
         }
+        return semesters;
+    }
+
+    public void addCourse(String nameCourse, String syllabus, Semester semester) throws SQLException {
+        int courseId = db.getNextCourseId();
+        Course c = new Course(nameCourse, courseId, syllabus);
+        for (Semester s : semesters) {
+            if (s.semesterId == semester.semesterId) {
+                s.addCourse(c);
+            }
+        }
+        db.addCourse(c);
+        db.addCourseInSemester(c.getCourse_id(), semester.semesterId);
     }
 }
