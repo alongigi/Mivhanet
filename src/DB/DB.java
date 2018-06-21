@@ -8,7 +8,8 @@ import java.util.*;
 public class DB {
     private Connection dbConnection;
 
-    public DB(String path) {
+    private static DB db = null;
+    private DB(String path) {
         try {
             dbConnection = DriverManager.getConnection("jdbc:sqlite:" + path);
 //            createCoursesTable();
@@ -17,7 +18,12 @@ public class DB {
             System.err.println(e.getMessage());
         }
     }
-
+    public static DB getInstance(String path) {
+        if(db == null) {
+            db = new DB(path);
+        }
+        return db;
+    }
 
 //  GET data
 

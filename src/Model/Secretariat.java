@@ -13,7 +13,7 @@ public class Secretariat {
     DB db;
 
     public Secretariat() {
-        this.db = SingletonDB.getInstance("myDB.db");
+        this.db = DB.getInstance("myDB.db");
         semesters = new ArrayList<Semester>();
         userList = new ArrayList<User>();
     }
