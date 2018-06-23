@@ -19,7 +19,6 @@ public class Semester {
     }
 
     public void addCourse(Course course){
-
     }
 
     public SemesterType getSemesterType() {

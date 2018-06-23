@@ -14,19 +14,15 @@ public class CourseStaff {
     List<Moed> moeds;
 
     public void addCommentToQuestion(Question q, String comment){
-
     }
 
     public void writeQuestion(Question q){
-
     }
 
     public void editQuestion(Question q){
-
     }
 
     public void deleteQuestion(int question_id){
-
     }
 
     public List<Question> getAllQuestions(){

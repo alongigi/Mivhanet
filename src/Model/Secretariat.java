@@ -20,7 +20,6 @@ public class Secretariat {
 
     public void initSystem() {
         //initSystem
-
     }
 
     public void watch(Exam e) {
@@ -66,11 +65,9 @@ public class Secretariat {
     }
 
     public void connectUser(User u) {
-
     }
 
     public void alertUserNotExsits() {
-
     }
 
     public User loginUser(String userNameInput, String userPasswordInput) {

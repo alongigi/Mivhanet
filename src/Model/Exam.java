@@ -25,6 +25,5 @@ public class Exam {
     }
 
     public void approve() {
-
     }
 }
